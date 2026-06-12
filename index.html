@@ -261,8 +261,20 @@
             border-radius: 4px;
         }
 
+        .warning-box {
+            background-color: #fff3cd;
+            border-left: 5px solid #ff6b6b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
         .info-box strong {
             color: #003d82;
+        }
+
+        .warning-box strong {
+            color: #d32f2f;
         }
 
         /* Footer mejorado */
@@ -359,6 +371,7 @@
             <li><a onclick="showSection('inicio')">🏠 Inicio</a></li>
             <li><a onclick="showSection('sobre')">ℹ️ Sobre el Proyecto</a></li>
             <li><a onclick="showSection('aprenderás')">📚 ¿Qué aprenderás?</a></li>
+            <li><a onclick="showSection('seguridad')">🔐 Seguridad Digital</a></li>
             <li><a onclick="showSection('requisitos')">✓ Requisitos</a></li>
             <li><a onclick="showSection('inscripcion')">📝 Inscripción</a></li>
             <li><a onclick="showSection('contacto')">☎️ Contacto</a></li>
@@ -387,6 +400,9 @@
                 <button class="quick-button" onclick="showSection('aprenderás')">
                     📚 Ver Temas de Aprendizaje
                 </button>
+                <button class="quick-button" onclick="showSection('seguridad')">
+                    🔐 Seguridad Digital
+                </button>
                 <button class="quick-button" onclick="showSection('inscripcion')">
                     ✏️ Inscribirse Ahora
                 </button>
@@ -399,7 +415,7 @@
         <!-- SECCIÓN: SOBRE EL PROYECTO -->
         <section id="sobre" class="section">
             <h2>Sobre el Proyecto</h2>
-            <p>Sabemos que el mundo digital puede parecer complicado, pero <strong>nunca es tarde para aprender</strong>. Nuestro objetivo es acompañarte paso a paso para que pierdas el miedo a la tecnología y aproveches todas sus ventajas.</p>
+            <p>Sabemos que el mundo digital puede parecer complicado, pero <strong>nunca es tarde para aprender</strong>. Nuestro objetivo es acompañarte paso a paso para que pierdas el miedo a la tecnología.</p>
 
             <h3>¿Por qué este proyecto?</h3>
             <ul>
@@ -413,7 +429,7 @@
                 <strong>Dato importante:</strong> Todos nuestros instructores tienen experiencia trabajando con adultos mayores y entienden tus necesidades.
             </div>
 
-            <button class="quick-button" onclick="showSection('inscripcion)" style="margin-top: 20px; width: 100%; max-width: 300px;">
+            <button class="quick-button" onclick="showSection('inscripcion')" style="margin-top: 20px; width: 100%; max-width: 300px;">
                 Continuar con Inscripción
             </button>
         </section>
@@ -430,7 +446,31 @@
                 <li>Organizar tus documentos de forma segura</li>
             </ul>
 
-            <h3>2. 🔒 Internet Seguro</h3>
+            <h3>2. 📱 Navegación en Teléfonos Móviles</h3>
+            <ul>
+                <li>Familiarizarte con tu teléfono inteligente</li>
+                <li>Descargar y usar aplicaciones útiles</li>
+                <li>Navegar por internet desde tu celular</li>
+                <li>Usar las redes sociales de forma segura</li>
+            </ul>
+
+            <h3>3. 🏦 Banca Móvil Segura</h3>
+            <ul>
+                <li>Cómo descargar la aplicación de tu banco</li>
+                <li>Realizar transacciones seguras desde tu celular</li>
+                <li>Proteger tus datos bancarios</li>
+                <li>Reconocer sitios web y aplicaciones falsas</li>
+            </ul>
+
+            <h3>4. 🚨 Combatir Estafas y Scams</h3>
+            <ul>
+                <li>Identificar mensajes de estafadores</li>
+                <li>Reconocer llamadas y correos sospechosos</li>
+                <li>Evitar caer en trampas en línea</li>
+                <li>Qué hacer si eres víctima de una estafa</li>
+            </ul>
+
+            <h3>5. 🔒 Internet Seguro</h3>
             <ul>
                 <li>Cómo buscar información en Google sin caer en trampas</li>
                 <li>Identificar sitios web seguros y confiables</li>
@@ -438,7 +478,7 @@
                 <li>Entender contraseñas seguras</li>
             </ul>
 
-            <h3>3. ✉️ Correo Electrónico</h3>
+            <h3>6. ✉️ Correo Electrónico</h3>
             <ul>
                 <li>Crear tu cuenta de correo electrónico</li>
                 <li>Leer y enviar mensajes a tus seres queridos</li>
@@ -446,7 +486,7 @@
                 <li>Realizar trámites en línea</li>
             </ul>
 
-            <h3>4. 📞 Trámites y Comunicación</h3>
+            <h3>7. 📞 Trámites y Comunicación</h3>
             <ul>
                 <li>Hacer videollamadas (Whatsapp, Skype, Zoom)</li>
                 <li>Acceder a servicios de salud en línea</li>
@@ -454,8 +494,94 @@
                 <li>Herramientas útiles para el día a día</li>
             </ul>
 
+            <button class="quick-button" onclick="showSection('seguridad')" style="margin-top: 20px; width: 100%; max-width: 300px;">
+                Aprender sobre Seguridad Digital
+            </button>
+        </section>
+
+        <!-- SECCIÓN: SEGURIDAD DIGITAL -->
+        <section id="seguridad" class="section">
+            <h2>🔐 Seguridad Digital - Lo Más Importante</h2>
+            
+            <div class="warning-box">
+                <strong>⚠️ Atención:</strong> La seguridad en línea es fundamental. Esta sección te enseñará a protegerte de las amenazas más comunes.
+            </div>
+
+            <h3>📱 Navegación Segura en Teléfonos Móviles</h3>
+            <ul>
+                <li><strong>Mantén tu teléfono actualizado:</strong> Las actualizaciones incluyen protección contra virus</li>
+                <li><strong>Descarga apps solo de tiendas oficiales:</strong> Usa Google Play Store o Apple App Store</li>
+                <li><strong>No conectes a WiFi público para operaciones sensibles:</strong> Evita hacer compras o transacciones bancarias en WiFi públicos</li>
+                <li><strong>Usa redes privadas con contraseña:</strong> Si necesitas internet, usa una red que conoces y es segura</li>
+                <li><strong>Ten cuidado con el tamaño de la letra:</strong> Verifica que realmente estés en la app correcta</li>
+            </ul>
+
+            <h3>🏦 Banca Móvil Segura</h3>
+            <ul>
+                <li><strong>Descarga SOLO desde la tienda oficial:</strong> Busca "Banco [tu banco]" en la Play Store o App Store</li>
+                <li><strong>Verifica el nombre de la app:</strong> Debe ser exacto, sin errores ortográficos</li>
+                <li><strong>Nunca compartas tu contraseña o PIN:</strong> Tu banco NUNCA te lo pedirá por teléfono, email o mensaje</li>
+                <li><strong>No hagas clic en enlaces de emails:</strong> Ve directamente a tu app o al sitio web oficial del banco</li>
+                <li><strong>Activa la autenticación de dos factores:</strong> Agrega una capa extra de seguridad</li>
+                <li><strong>Verifica transacciones regularmente:</strong> Revisa el historial de tus movimientos frecuentemente</li>
+                <li><strong>Conecta desde una red segura:</strong> Usa tu WiFi privado en casa, no WiFi público</li>
+            </ul>
+
+            <h3>🚨 Señales de Alerta: Cómo Identificar Estafas y Scams</h3>
+            
+            <h4 style="color: #d32f2f; margin-top: 15px;">Mensajes de Texto (SMS) Sospechosos:</h4>
+            <ul>
+                <li>❌ "Tu cuenta ha sido comprometida. Haz clic aquí para verificar" → ESTAFA</li>
+                <li>❌ "Has ganado un premio. Confirma aquí" → ESTAFA</li>
+                <li>❌ "Tu paquete no se pudo entregar. Haz clic para reprogramar" → POSIBLE ESTAFA</li>
+                <li>❌ Mensajes de bancos pidiendo tu contraseña → ESTAFA (Los bancos nunca piden esto)</li>
+                <li>❌ "Hemos detectado actividad fraudulenta. Verifica tu cuenta" → ESTAFA</li>
+            </ul>
+
+            <h4 style="color: #d32f2f; margin-top: 15px;">Correos Electrónicos Sospechosos:</h4>
+            <ul>
+                <li>❌ Errores ortográficos o gramaticales graves</li>
+                <li>❌ Remitente con un nombre extraño o que no reconoces</li>
+                <li>❌ Pedido urgente de dinero o información personal</li>
+                <li>❌ Enlaces que NO coinciden con el nombre del sitio oficial</li>
+                <li>❌ Amenazas o presión ("Si no haces clic en 24 horas...")</li>
+            </ul>
+
+            <h4 style="color: #d32f2f; margin-top: 15px;">Llamadas Telefónicas Sospechosas:</h4>
+            <ul>
+                <li>❌ "Soy del banco/gobierno. Necesito verificar tus datos" → Cuelga y llama directamente al banco</li>
+                <li>❌ "Has ganado un viaje. Solo paga la comisión" → ESTAFA</li>
+                <li>❌ "Tu nieto está en apuros. Envía dinero urgente" → ESTAFA (busca primero al nieto)</li>
+                <li>❌ Te preguntan por contraseña, PIN o números de tarjeta → NUNCA compartas esto por teléfono</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>💡 Regla de Oro:</strong> Si algo parece extraño o sospechoso, confía en tu instinto. No hagas clic, no abras, y NO compartas información. Cuando dudes, pregunta a alguien de confianza o llama directamente a tu banco.
+            </div>
+
+            <h3>✅ Qué HACER si crees que eres víctima de una estafa:</h3>
+            <ul>
+                <li>✓ <strong>Detente inmediatamente:</strong> No compartas más información</li>
+                <li>✓ <strong>Avisa a tu banco:</strong> Llama de inmediato si fue sobre dinero</li>
+                <li>✓ <strong>Cambia tus contraseñas:</strong> Hazlo desde una computadora segura</li>
+                <li>✓ <strong>Reporta a la policía:</strong> Presenta una denuncia oficial</li>
+                <li>✓ <strong>Informa a la plataforma:</strong> Si fue en redes sociales o email, repórtalo como fraude</li>
+                <li>✓ <strong>Cuéntale a un familiar:</strong> Pide apoyo y consejo</li>
+            </ul>
+
+            <h3>🛡️ Medidas de Protección General:</h3>
+            <ul>
+                <li>✓ Usa contraseñas fuertes y diferentes para cada cuenta</li>
+                <li>✓ No escribas tu contraseña en lugares públicos o ante extraños</li>
+                <li>✓ Instala un antivirus en tu computadora</li>
+                <li>✓ Cierra sesión después de usar servicios bancarios</li>
+                <li>✓ Usa el botón "Olvidar contraseña" si sospechas que alguien conoce la tuya</li>
+                <li>✓ Revisa regularmente tus extractos bancarios</li>
+                <li>✓ Mantén tus dispositivos protegidos con PIN o contraseña</li>
+            </ul>
+
             <button class="quick-button" onclick="showSection('requisitos')" style="margin-top: 20px; width: 100%; max-width: 300px;">
-                Ver Requisitos
+                Ver Requisitos del Programa
             </button>
         </section>
 
@@ -473,6 +599,7 @@
                 <li>Tienes pocos o nulos conocimientos en tecnología (¡eso es perfecto!)</li>
                 <li>Quieres conectar con familia y amigos</li>
                 <li>Deseas ser más independiente en el mundo digital</li>
+                <li>Quieres aprender a protegerte de estafas en línea</li>
             </ul>
 
             <h3>Lo que necesitas saber:</h3>
@@ -482,6 +609,7 @@
                 <li>Puedes ir a tu propio ritmo - No hay prisa</li>
                 <li>Todos empiezan desde cero - Nadie te juzgará</li>
                 <li>Puedes venir acompañado de un familiar si lo deseas</li>
+                <li>Aprenderás desde conceptos básicos hasta seguridad avanzada</li>
             </ul>
 
             <button class="quick-button" onclick="showSection('inscripcion')" style="margin-top: 20px; width: 100%; max-width: 300px;">
@@ -524,6 +652,9 @@
                     <option value="email">Aprender a usar correo electrónico</option>
                     <option value="videollamadas">Hacer videollamadas con familia</option>
                     <option value="internet">Buscar información en Internet</option>
+                    <option value="movil">Usar teléfono móvil (navegación y apps)</option>
+                    <option value="banca">Banca móvil segura</option>
+                    <option value="proteccion">Protegerme de estafas en línea</option>
                     <option value="general">Aprender en general</option>
                 </select>
 
@@ -609,6 +740,7 @@
                 'inicio': 'Inicio',
                 'sobre': 'Inicio > Sobre el Proyecto',
                 'aprenderás': 'Inicio > ¿Qué aprenderás?',
+                'seguridad': 'Inicio > Seguridad Digital',
                 'requisitos': 'Inicio > Requisitos',
                 'inscripcion': 'Inicio > Inscripción',
                 'contacto': 'Inicio > Contacto'
