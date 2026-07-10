@@ -18,37 +18,44 @@
             line-height: 1.6;
             background-color: #f4f7f6;
             color: #333333;
+            transition: background-color 0.2s, color 0.2s;
         }
 
-        /* Botón para aumentar/disminuir tamaño de fuente */
-        .accessibility-controls {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: #0056b3;
-            padding: 10px 15px;
-            border-radius: 8px;
-            z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        /* Barra superior utilitaria para controles de accesibilidad */
+        .accessibility-bar {
+            background-color: #003d82;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        .accessibility-controls button {
-            background-color: #28a745;
+        .accessibility-bar span {
             color: white;
-            border: none;
-            padding: 8px 12px;
-            margin: 0 5px;
-            border-radius: 4px;
             font-size: 16px;
-            cursor: pointer;
             font-weight: bold;
         }
 
-        .accessibility-controls button:hover {
-            background-color: #218838;
+        .accessibility-bar button {
+            background-color: #1e7e34; /* Verde más oscuro accesible */
+            color: white;
+            border: 2px solid white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            width: auto;
         }
 
-        /* Navegación principal mejorada */
+        .accessibility-bar button:hover, .accessibility-bar button:focus {
+            background-color: #155724;
+            outline: 3px solid #ffeb3b;
+        }
+
+        /* Navegación principal accesible */
         nav {
             background-color: #0056b3;
             padding: 15px 0;
@@ -70,9 +77,9 @@
         nav a {
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 12px 20px;
             background-color: #003d82;
-            border-radius: 4px;
+            border-radius: 6px;
             font-weight: bold;
             font-size: 18px;
             transition: background-color 0.3s;
@@ -80,7 +87,7 @@
         }
 
         nav a:hover, nav a:focus {
-            background-color: #28a745;
+            background-color: #1e7e34;
             outline: 3px solid #ffeb3b;
         }
 
@@ -122,12 +129,17 @@
             display: block;
         }
 
+        /* H2 preparado para recibir el foco de accesibilidad sin bordes molestos */
         h2 {
             color: #0056b3;
             border-bottom: 3px solid #0056b3;
             padding-bottom: 15px;
             margin-bottom: 20px;
             font-size: 1.8rem;
+        }
+        
+        h2:focus {
+            outline: none;
         }
 
         h3 {
@@ -180,11 +192,11 @@
         }
 
         button {
-            background-color: #28a745;
+            background-color: #1e7e34; /* Verde más oscuro y accesible */
             color: white;
             padding: 15px 30px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             font-size: 20px;
             font-weight: bold;
             cursor: pointer;
@@ -192,8 +204,8 @@
             transition: background-color 0.3s;
         }
 
-        button:hover {
-            background-color: #218838;
+        button:hover, button:focus {
+            background-color: #155724;
         }
 
         button:focus {
@@ -208,17 +220,7 @@
             border-radius: 4px;
             margin-bottom: 20px;
             font-size: 16px;
-        }
-
-        .breadcrumb a {
-            color: #0056b3;
-            text-decoration: none;
-            cursor: pointer;
             font-weight: bold;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
         }
 
         /* Botones de navegación rápida */
@@ -242,14 +244,9 @@
             transition: background-color 0.3s, transform 0.2s;
         }
 
-        .quick-button:hover {
-            background-color: #28a745;
-            transform: scale(1.05);
-        }
-
-        .quick-button:focus {
-            outline: 3px solid #ffeb3b;
-            outline-offset: 2px;
+        .quick-button:hover, .quick-button:focus {
+            background-color: #1e7e34;
+            transform: scale(1.02);
         }
 
         /* Cuadros informativos */
@@ -277,7 +274,6 @@
             color: #d32f2f;
         }
 
-        /* Footer mejorado */
         footer {
             text-align: center;
             padding: 30px 20px;
@@ -289,17 +285,6 @@
 
         footer p {
             margin: 10px 0;
-        }
-
-        /* Icono/Indicador visual de sección activa */
-        .section-indicator {
-            display: inline-block;
-            background-color: #28a745;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            margin-left: 10px;
-            font-size: 14px;
         }
 
         /* Responsive */
@@ -323,41 +308,98 @@
                 grid-template-columns: 1fr;
             }
 
-            .accessibility-controls {
-                position: relative;
-                top: auto;
-                right: auto;
-                margin-bottom: 10px;
+            .accessibility-bar {
+                justify-content: center;
+                flex-wrap: wrap;
             }
         }
 
-        /* Skip link para accesibilidad */
+        /* Skip link para accesibilidad del teclado */
         .skip-link {
             position: absolute;
-            top: -40px;
+            top: -60px;
             left: 0;
-            background: #28a745;
+            background: #1e7e34;
             color: white;
-            padding: 8px;
+            padding: 12px;
             text-decoration: none;
-            z-index: 100;
+            z-index: 1000;
+            font-weight: bold;
         }
 
         .skip-link:focus {
             top: 0;
         }
+
+        /* ==========================================
+           SISTEMA INTEGRAL DE ALTO CONTRASTE (CSS)
+           ========================================== */
+        body.high-contrast {
+            background-color: #000000 !important;
+            color: #FFFF00 !important;
+        }
+
+        body.high-contrast .container,
+        body.high-contrast form,
+        body.high-contrast .info-box,
+        body.high-contrast .warning-box,
+        body.high-contrast .breadcrumb {
+            background-color: #000000 !important;
+            color: #FFFF00 !important;
+            border: 3px solid #FFFF00 !important;
+        }
+
+        body.high-contrast h2,
+        body.high-contrast h3,
+        body.high-contrast h4,
+        body.high-contrast label,
+        body.high-contrast header h1,
+        body.high-contrast header p,
+        body.high-contrast .info-box strong,
+        body.high-contrast .warning-box strong {
+            color: #FFFF00 !important;
+            border-bottom-color: #FFFF00 !important;
+        }
+
+        body.high-contrast button,
+        body.high-contrast nav a,
+        body.high-contrast .quick-button {
+            background-color: #000000 !important;
+            color: #FFFF00 !important;
+            border: 2px solid #FFFF00 !important;
+        }
+
+        body.high-contrast button:hover,
+        body.high-contrast button:focus,
+        body.high-contrast nav a:hover,
+        body.high-contrast nav a:focus,
+        body.high-contrast .quick-button:hover,
+        body.high-contrast .quick-button:focus {
+            background-color: #FFFF00 !important;
+            color: #000000 !important;
+            outline: 3px solid #FFFFFF !important;
+        }
+
+        body.high-contrast input,
+        body.high-contrast select,
+        body.high-contrast textarea {
+            background-color: #000000 !important;
+            color: #FFFF00 !important;
+            border: 2px solid #FFFF00 !important;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Skip link para teclado -->
-    <a href="#main-content" class="skip-link">Ir al contenido principal</a>
+    <!-- Enlace de salto para usuarios de teclado -->
+    <a href="#main-content" class="skip-link">Ir directamente al contenido principal</a>
 
-    <!-- Controles de accesibilidad -->
-    <div class="accessibility-controls">
-        <button onclick="increaseFontSize()">A+</button>
-        <button onclick="decreaseFontSize()">A-</button>
-        <button onclick="toggleHighContrast()">Alto Contraste</button>
+    <!-- Barra de herramientas de accesibilidad -->
+    <div class="accessibility-bar" aria-label="Controles de accesibilidad">
+        <span>Tamaño del texto:</span>
+        <button onclick="increaseFontSize()" aria-label="Aumentar tamaño de letra">Aumentar A+</button>
+        <button onclick="decreaseFontSize()" aria-label="Disminuir tamaño de letra">Disminuir A-</button>
+        <button onclick="toggleHighContrast()" aria-label="Alternar colores de alto contraste">Alto Contraste</button>
     </div>
 
     <header>
@@ -365,29 +407,29 @@
         <p>Talleres gratuitos de computación e internet para mayores de 65 años</p>
     </header>
 
-    <!-- Navegación principal -->
-    <nav>
+    <!-- Menú de Navegación con enlaces reales para accesibilidad -->
+    <nav aria-label="Menú principal de navegación">
         <ul>
-            <li><a onclick="showSection('inicio')">🏠 Inicio</a></li>
-            <li><a onclick="showSection('sobre')">ℹ️ Sobre el Proyecto</a></li>
-            <li><a onclick="showSection('aprenderás')">📚 ¿Qué aprenderás?</a></li>
-            <li><a onclick="showSection('seguridad')">🔐 Seguridad Digital</a></li>
-            <li><a onclick="showSection('requisitos')">✓ Requisitos</a></li>
-            <li><a onclick="showSection('inscripcion')">📝 Inscripción</a></li>
-            <li><a onclick="showSection('contacto')">☎️ Contacto</a></li>
+            <li><a href="#inicio" onclick="showSection('inicio'); return false;">🏠 Inicio</a></li>
+            <li><a href="#sobre" onclick="showSection('sobre'); return false;">ℹ️ Sobre el Proyecto</a></li>
+            <li><a href="#aprenderas" onclick="showSection('aprenderas'); return false;">📚 ¿Qué aprenderás?</a></li>
+            <li><a href="#seguridad" onclick="showSection('seguridad'); return false;">🔐 Seguridad Digital</a></li>
+            <li><a href="#requisitos" onclick="showSection('requisitos'); return false;">✓ Requisitos</a></li>
+            <li><a href="#inscripcion" onclick="showSection('inscripcion'); return false;">📝 Inscripción</a></li>
+            <li><a href="#contacto" onclick="showSection('contacto'); return false;">☎️ Contacto</a></li>
         </ul>
     </nav>
 
     <div class="container" id="main-content">
         <!-- Migas de pan -->
-        <div class="breadcrumb" id="breadcrumb">
+        <div class="breadcrumb" id="breadcrumb" aria-live="polite">
             Inicio
         </div>
 
         <!-- SECCIÓN: INICIO -->
-        <section id="inicio" class="section active">
-            <h2>Bienvenido a Conectando Generaciones</h2>
-            
+        <section id="inicio" class="section active" aria-labelledby="title-inicio">
+            <h2 id="title-inicio">Bienvenido a Conectando Generaciones</h2>
+             
             <div class="info-box">
                 <strong>¿Quieres aprender a usar la computadora?</strong><br>
                 Estamos aquí para ayudarte. Navega por este sitio y descubre todo lo que podemos enseñarte.
@@ -397,7 +439,7 @@
                 <button class="quick-button" onclick="showSection('sobre')">
                     📖 Conocer el Proyecto
                 </button>
-                <button class="quick-button" onclick="showSection('aprenderás')">
+                <button class="quick-button" onclick="showSection('aprenderas')">
                     📚 Ver Temas de Aprendizaje
                 </button>
                 <button class="quick-button" onclick="showSection('seguridad')">
@@ -413,8 +455,8 @@
         </section>
 
         <!-- SECCIÓN: SOBRE EL PROYECTO -->
-        <section id="sobre" class="section">
-            <h2>Sobre el Proyecto</h2>
+        <section id="sobre" class="section" aria-labelledby="title-sobre">
+            <h2 id="title-sobre">Sobre el Proyecto</h2>
             <p>Sabemos que el mundo digital puede parecer complicado, pero <strong>nunca es tarde para aprender</strong>. Nuestro objetivo es acompañarte paso a paso para que pierdas el miedo a la tecnología.</p>
 
             <h3>¿Por qué este proyecto?</h3>
@@ -429,15 +471,15 @@
                 <strong>Dato importante:</strong> Todos nuestros instructores tienen experiencia trabajando con adultos mayores y entienden tus necesidades.
             </div>
 
-            <button class="quick-button" onclick="showSection('inscripcion')" style="margin-top: 20px; width: 100%; max-width: 300px;">
+            <button class="quick-button" onclick="showSection('inscripcion')" style="margin-top: 20px; width: 100%; max-width: 400px;">
                 Continuar con Inscripción
             </button>
         </section>
 
         <!-- SECCIÓN: ¿QUÉ APRENDERÁS? -->
-        <section id="aprenderás" class="section">
-            <h2>¿Qué aprenderás?</h2>
-            
+        <section id="aprenderas" class="section" aria-labelledby="title-aprenderas">
+            <h2 id="title-aprenderas">¿Qué aprenderás?</h2>
+             
             <h3>1. 💻 Uso de la Computadora</h3>
             <ul>
                 <li>Conocer las partes principales de una computadora</li>
@@ -482,27 +524,27 @@
             <ul>
                 <li>Crear tu cuenta de correo electrónico</li>
                 <li>Leer y enviar mensajes a tus seres queridos</li>
-                <li>Usar anejos (compartir fotos y documentos)</li>
+                <li>Usar anexos (compartir fotos y documentos)</li>
                 <li>Realizar trámites en línea</li>
             </ul>
 
             <h3>7. 📞 Trámites y Comunicación</h3>
             <ul>
-                <li>Hacer videollamadas (Whatsapp, Skype, Zoom)</li>
+                <li>Hacer videollamadas (WhatsApp, Skype, Zoom)</li>
                 <li>Acceder a servicios de salud en línea</li>
                 <li>Usar redes sociales de forma segura</li>
                 <li>Herramientas útiles para el día a día</li>
             </ul>
 
-            <button class="quick-button" onclick="showSection('seguridad')" style="margin-top: 20px; width: 100%; max-width: 300px;">
+            <button class="quick-button" onclick="showSection('seguridad')" style="margin-top: 20px; width: 100%; max-width: 400px;">
                 Aprender sobre Seguridad Digital
             </button>
         </section>
 
         <!-- SECCIÓN: SEGURIDAD DIGITAL -->
-        <section id="seguridad" class="section">
-            <h2>🔐 Seguridad Digital - Lo Más Importante</h2>
-            
+        <section id="seguridad" class="section" aria-labelledby="title-seguridad">
+            <h2 id="title-seguridad">🔐 Seguridad Digital - Lo Más Importante</h2>
+             
             <div class="warning-box">
                 <strong>⚠️ Atención:</strong> La seguridad en línea es fundamental. Esta sección te enseñará a protegerte de las amenazas más comunes.
             </div>
@@ -528,7 +570,7 @@
             </ul>
 
             <h3>🚨 Señales de Alerta: Cómo Identificar Estafas y Scams</h3>
-            
+             
             <h4 style="color: #d32f2f; margin-top: 15px;">Mensajes de Texto (SMS) Sospechosos:</h4>
             <ul>
                 <li>❌ "Tu cuenta ha sido comprometida. Haz clic aquí para verificar" → ESTAFA</li>
@@ -580,15 +622,15 @@
                 <li>✓ Mantén tus dispositivos protegidos con PIN o contraseña</li>
             </ul>
 
-            <button class="quick-button" onclick="showSection('requisitos')" style="margin-top: 20px; width: 100%; max-width: 300px;">
+            <button class="quick-button" onclick="showSection('requisitos')" style="margin-top: 20px; width: 100%; max-width: 400px;">
                 Ver Requisitos del Programa
             </button>
         </section>
 
         <!-- SECCIÓN: REQUISITOS -->
-        <section id="requisitos" class="section">
-            <h2>¿A quién va dirigido?</h2>
-            
+        <section id="requisitos" class="section" aria-labelledby="title-requisitos">
+            <h2 id="title-requisitos">¿A quién va dirigido?</h2>
+             
             <div class="info-box">
                 <strong>Este programa es para ti si:</strong>
             </div>
@@ -612,34 +654,35 @@
                 <li>Aprenderás desde conceptos básicos hasta seguridad avanzada</li>
             </ul>
 
-            <button class="quick-button" onclick="showSection('inscripcion')" style="margin-top: 20px; width: 100%; max-width: 300px;">
+            <button class="quick-button" onclick="showSection('inscripcion')" style="margin-top: 20px; width: 100%; max-width: 400px;">
                 Inscribirse Ahora
             </button>
         </section>
 
         <!-- SECCIÓN: INSCRIPCIÓN -->
-        <section id="inscripcion" class="section">
-            <h2>¡Inscríbete o solicita información!</h2>
-            <p style="font-size: 18px; color: #666; margin-bottom: 20px;">
+        <section id="inscripcion" class="section" aria-labelledby="title-inscripcion">
+            <h2 id="title-inscripcion">¡Inscríbete o solicita información!</h2>
+            <p style="font-size: 18px; color: #555; margin-bottom: 20px;">
                 Puedes rellenar este formulario tú mismo o pedirle ayuda a un familiar.
             </p>
 
             <form action="#" method="POST" onsubmit="handleFormSubmit(event)">
-                
-                <label for="nombre">Nombre Completo <span style="color: red;">*</span>:</label>
+                 
+                <label for="nombre">Nombre Completo <span style="color: #d32f2f;">*</span>:</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Ej. María García" required aria-required="true">
 
-                <label for="edad">Edad <span style="color: red;">*</span>:</label>
-                <input type="number" id="edad" name="edad" min="65" max="120" placeholder="Ej. 70" required aria-required="true">
+                <label for="edad">Edad <span style="color: #d32f2f;">*</span>:</label>
+                <!-- Ajustado a modo numérico sin flechas complicadas para evitar clics erróneos -->
+                <input type="text" id="edad" name="edad" inputmode="numeric" pattern="[0-9]*" placeholder="Ej. 70" required aria-required="true">
 
-                <label for="telefono">Teléfono de Contacto <span style="color: red;">*</span>:</label>
+                <label for="telefono">Teléfono de Contacto <span style="color: #d32f2f;">*</span>:</label>
                 <input type="tel" id="telefono" name="telefono" placeholder="Ej. 6123-4567" required aria-required="true">
 
                 <label for="email">Correo Electrónico (Opcional):</label>
                 <input type="email" id="email" name="email" placeholder="Ej. nombre@correo.com">
 
                 <label for="experiencia">¿Tienes experiencia previa con computadoras?</label>
-                <select id="experiencia" name="experiencia" aria-label="Experiencia previa">
+                <select id="experiencia" name="experiencia">
                     <option value="">-- Selecciona una opción --</option>
                     <option value="ninguna">Ninguna en absoluto</option>
                     <option value="basica">Muy básica</option>
@@ -666,19 +709,19 @@
 
             <div class="info-box" style="margin-top: 30px;">
                 <strong>¿Qué sucede después?</strong><br>
-                Nos pondremos en contacto contigo dentro de 2-3 días hábiles para confirmar tu inscripción y informarte sobre el horario de los talleres.
+                Nos pondremos en contacto contigo dentro de 2-3 días hábiles para confirmar tu inscripción e informarte sobre el horario de los talleres.
             </div>
         </section>
 
         <!-- SECCIÓN: CONTACTO -->
-        <section id="contacto" class="section">
-            <h2>Contáctanos</h2>
-            
+        <section id="contacto" class="section" aria-labelledby="title-contacto">
+            <h2 id="title-contacto">Contáctanos</h2>
+             
             <h3>📞 Teléfono</h3>
             <p style="font-size: 24px; font-weight: bold; color: #0056b3;">
                 +1 (555) 123-4567
             </p>
-            <p style="font-size: 16px; color: #666;">De lunes a viernes, 9:00 AM - 5:00 PM</p>
+            <p style="font-size: 16px; color: #555;">De lunes a viernes, 9:00 AM - 5:00 PM</p>
 
             <h3>📍 Ubicación</h3>
             <p>Centro Comunitario de Inclusión Digital<br>
@@ -700,7 +743,7 @@
                 También puedes visitarnos en persona. No dudes en venir con un familiar si lo necesitas.
             </div>
 
-            <button class="quick-button" onclick="showSection('inscripcion')" style="margin-top: 20px; width: 100%; max-width: 300px;">
+            <button class="quick-button" onclick="showSection('inscripcion')" style="margin-top: 20px; width: 100%; max-width: 400px;">
                 Volver a Inscripción
             </button>
         </section>
@@ -713,9 +756,8 @@
 
     <script>
         let currentFontSize = 20;
-        let isHighContrast = false;
 
-        // Mostrar/ocultar secciones
+        // Mostrar/ocultar secciones de forma accesible redirigiendo el foco del teclado
         function showSection(sectionId) {
             // Ocultar todas las secciones
             const sections = document.querySelectorAll('.section');
@@ -725,12 +767,18 @@
             const selectedSection = document.getElementById(sectionId);
             if (selectedSection) {
                 selectedSection.classList.add('active');
-                
+                 
                 // Actualizar migas de pan
                 updateBreadcrumb(sectionId);
-                
-                // Scroll al inicio
-                window.scrollTo(0, 0);
+                 
+                // Mover automáticamente el foco al título de la sección para lectores de pantalla
+                const heading = selectedSection.querySelector('h2');
+                if (heading) {
+                    heading.setAttribute('tabindex', '-1');
+                    heading.focus();
+                } else {
+                    window.scrollTo(0, 0);
+                }
             }
         }
 
@@ -739,7 +787,7 @@
             const breadcrumbMap = {
                 'inicio': 'Inicio',
                 'sobre': 'Inicio > Sobre el Proyecto',
-                'aprenderás': 'Inicio > ¿Qué aprenderás?',
+                'aprenderas': 'Inicio > ¿Qué aprenderás?',
                 'seguridad': 'Inicio > Seguridad Digital',
                 'requisitos': 'Inicio > Requisitos',
                 'inscripcion': 'Inicio > Inscripción',
@@ -749,71 +797,44 @@
             document.getElementById('breadcrumb').textContent = breadcrumbMap[sectionId] || 'Inicio';
         }
 
-        // Aumentar tamaño de fuente
+        // Aumentar tamaño de fuente de manera uniforme
         function increaseFontSize() {
             currentFontSize += 2;
             if (currentFontSize > 32) currentFontSize = 32;
             document.body.style.fontSize = currentFontSize + 'px';
         }
 
-        // Disminuir tamaño de fuente
+        // Disminuir tamaño de fuente de manera uniforme
         function decreaseFontSize() {
             currentFontSize -= 2;
             if (currentFontSize < 14) currentFontSize = 14;
             document.body.style.fontSize = currentFontSize + 'px';
         }
 
-        // Alternar alto contraste
+        // Alternar alto contraste mediante conmutación de clase CSS limpia
         function toggleHighContrast() {
-            isHighContrast = !isHighContrast;
-            
-            if (isHighContrast) {
-                document.body.style.backgroundColor = '#000000';
-                document.body.style.color = '#FFFF00';
-                document.querySelectorAll('h2, h3').forEach(el => {
-                    el.style.color = '#FFFF00';
-                    el.style.borderBottomColor = '#FFFF00';
-                });
-                document.querySelectorAll('.container').forEach(el => {
-                    el.style.backgroundColor = '#000000';
-                    el.style.border = '3px solid #FFFF00';
-                });
-            } else {
-                // Restaurar colores originales
-                document.body.style.backgroundColor = '#f4f7f6';
-                document.body.style.color = '#333333';
-                document.querySelectorAll('h2, h3').forEach(el => {
-                    el.style.color = '';
-                    el.style.borderBottomColor = '';
-                });
-                document.querySelectorAll('.container').forEach(el => {
-                    el.style.backgroundColor = '#ffffff';
-                    el.style.border = '';
-                });
-            }
+            document.body.classList.toggle('high-contrast');
         }
 
-        // Manejar envío del formulario
+        // Manejar envío del formulario de manera amigable
         function handleFormSubmit(event) {
             event.preventDefault();
             
             const nombre = document.getElementById('nombre').value;
-            const edad = document.getElementById('edad').value;
             const telefono = document.getElementById('telefono').value;
+             
+            // Mostrar mensaje de confirmación controlado
+            alert(`¡Gracias ${nombre}!\n\nTu solicitud ha sido registrada.\nNos pondremos en contacto al número: ${telefono}\n\n¡Esperamos verle pronto!`);
             
-            // Mostrar mensaje de confirmación
-            alert(`¡Gracias ${nombre}!\n\nTu solicitud ha sido registrada.\nNos pondremos en contacto al: ${telefono}\n\n¡Esperamos verte pronto!`);
-            
-            // Limpiar formulario
+            // Limpiar formulario de forma segura
             event.target.reset();
             
-            // Volver a inicio
+            // Regresar al inicio
             showSection('inicio');
         }
 
-        // Navegación con teclado
+        // Accesibilidad nativa: Atajo rápido con teclado (Alt + Home para regresar al Inicio)
         document.addEventListener('keydown', function(event) {
-            // Alt + Home = Ir a inicio
             if (event.altKey && event.key === 'Home') {
                 showSection('inicio');
             }
